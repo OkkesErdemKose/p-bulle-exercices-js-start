@@ -2,19 +2,6 @@
 
 
 /**
- * @param {any} name
- * @param {any} age
- * @param {any} ticketId
- */
-function Visitor(name, age, ticketId) {
-  this.name = name;
-  this.age = age;
-  this.ticketId = ticketId;
-
-}
-
-
-/**
  * Creates a new visitor.
  *
  * @param {string} name
@@ -23,7 +10,8 @@ function Visitor(name, age, ticketId) {
  * @returns {Visitor} the visitor that was created
  */
 export function createVisitor(name, age, ticketId) {
-  return new Visitor(name, age, ticketId);
+  const visitor = {name: name, age: age, ticketId: ticketId};
+  return visitor;
 }
 
 /**
@@ -72,19 +60,8 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  let result = "";
-  
-  if (!tickets[ticketId]?.toString)
-  {
-    result = "invalid ticket !!!";
-  }
-  else {
-    result = tickets[ticketId];
-  }
 
-  return result;
-
-
+  return tickets[ticketId] ?? "invalid ticket !!!";
 }
 
 /**
