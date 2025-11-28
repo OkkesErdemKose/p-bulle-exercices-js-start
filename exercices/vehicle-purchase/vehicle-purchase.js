@@ -32,7 +32,7 @@ export function chooseVehicle(option1, option2) {
   // }
   
   const betterOptions = " is clearly the better choice.";
-  
+
   let choise = option1 < option2 ? option1 : option2;
   return choise + betterOptions;
 
@@ -47,11 +47,5 @@ export function chooseVehicle(option1, option2) {
  * @returns {number} expected resell price in the dealership
  */
 export function calculateResellPrice(originalPrice, age) {
-  if (age < 3) {
-    return originalPrice * 0.8;
-  } else if (age >= 3 && age <= 10){
-    return originalPrice * 0.7;
-  } else if (age >= 10){
-    return originalPrice * 0.5;
-  }
+  return age < 3 ? originalPrice * 0.8 : age <= 10 ? originalPrice * 0.7 : originalPrice * 0.5;
 }
