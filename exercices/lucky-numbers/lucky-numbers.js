@@ -8,7 +8,9 @@
  * @returns {number} sum of the two arrays
  */
 export function twoSum(array1, array2) {
-  throw new Error('Remove this line and implement the function');
+  const rsult = Number(array1.join("")) + Number(array2.join(""));
+
+  return rsult;
 }
 
 /**
@@ -18,7 +20,9 @@ export function twoSum(array1, array2) {
  * @returns {boolean} whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
-  throw new Error('Remove this line and implement the function');
+    let valueToString = value.toString();
+    // Retourne un booleean qui split la variable valueToString, donc il decoup a chaque '' donc a chaque caractere, ensuite sa reverse le tableau et le join re colle toute les char entre elles, donc refait le mot mais a l'envers.
+    return valueToString.split('').reverse().join('') === valueToString;
 }
 
 /**
@@ -29,5 +33,12 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  throw new Error('Remove this line and implement the function');
+  if (Boolean(Number(input))) {
+    return ''
+  }
+  else if (input === null || input === undefined || String(input).trim() === '') {
+    return 'Required field'
+  }
+  return 'Must be a number besides 0'
+
 }
