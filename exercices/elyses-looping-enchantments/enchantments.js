@@ -31,10 +31,10 @@ export function determineOddEvenCards(stack, type) {
   let count = 0;
   
   for (const carte of stack) {
-    if ((carte % 2 === 0) === type) 
-    {
+    if (type && carte % 2 === 0) {
       count++;
-
+    } else if (!type && carte % 2 !== 0) {
+      count++;
     }
   }
 
