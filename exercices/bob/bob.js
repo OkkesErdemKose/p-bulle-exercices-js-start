@@ -4,24 +4,27 @@
 //
 
 export const hey = (message) => {
-  const response = ["Whatever.", "Whoa, chill out!", "Sure.", "Calm down, I know what I'm doing!", "Fine. Be that way!"]
+  // ENleve les espaces
   const trimmedMessage = message.trim();
+  // Regarde si le message trimmed a un '?' a la fin
   const isQuestion = trimmedMessage.endsWith("?");
-  const hasLetters = /[A-Z]/.test(trimmedMessage);
+  // Regex, de a-z et A-z, puis retourne un test si il est trimmed ou pas
+  const hasLetters = /[a-zA-Z]/.test(trimmedMessage);
+  
   const isShooting = hasLetters && trimmedMessage === trimmedMessage.toUpperCase();
 
   if (trimmedMessage === "") {
-    return response[4];
+    return "Fine. Be that way!";
   }
   if (isShooting && isQuestion) {
-    return response[3];
+    return "Calm down, I know what I'm doing!";
   }
   if (isShooting) {
-    return response[1];
+    return "Whoa, chill out!";
   }
   if (isQuestion) {
-    return response[2];
+    return "Sure.";
   }
-  return response[0];
+  return "Whatever.";
 
 };
