@@ -26,11 +26,16 @@ export function totalBirdCount(birdsPerDay) {
  * @returns {number} birds counted in the given week
  */
 export function birdsInWeek(birdsPerDay, week) {
-  let daysInWeek = 7;
   let result = 0;
-  for (let i = 0; i < daysInWeek; i++) {
+  const daysInWeeks = 7;
+  const startWeeks = (week - 1 ) *7
+
+  for (let i = startWeeks; i < startWeeks + daysInWeeks; i++) {
     result += birdsPerDay[i];
+    
   }
+
+
   return result;
 }
 
@@ -42,5 +47,10 @@ export function birdsInWeek(birdsPerDay, week) {
  * @returns {void} should not return anything
  */
 export function fixBirdCountLog(birdsPerDay) {
-  throw new Error('Remove this line and implement the function');
+  // Boucle qui decale de 2 index a chaque fois puis fais +1 a la valeur dans le tableau
+  for (let i = 0; i < birdsPerDay.length; i++) {
+    birdsPerDay[i] += 1;
+    i += 1;
+  }
+
 }
