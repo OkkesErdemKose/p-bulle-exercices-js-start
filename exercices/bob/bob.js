@@ -4,13 +4,13 @@
 //
 
 export const hey = (message) => {
-  // ENleve les espaces
+  // ENleve les espaces, tabulations etc
   const trimmedMessage = message.trim();
-  // Regarde si le message trimmed a un '?' a la fin
+  // Regarde si trimmedMessage fini pas un'?'
   const isQuestion = trimmedMessage.endsWith("?");
-  // Regex, de a-z et A-z, puis retourne un test si il est trimmed ou pas
+  // Constante qui retourne un booleen si trimmedMessage correspond au regex
   const hasLetters = /[a-zA-Z]/.test(trimmedMessage);
-  
+  // true si le message contient des lettres, trimmed et qu'il est ecrit en majuscule
   const isShooting = hasLetters && trimmedMessage === trimmedMessage.toUpperCase();
 
   if (trimmedMessage === "") {
