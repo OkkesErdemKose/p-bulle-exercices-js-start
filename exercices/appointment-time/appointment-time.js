@@ -9,7 +9,15 @@
  * @returns {Date} the appointment
  */
 export function createAppointment(days, now = undefined) {
-  throw new Error('Remove this line and implement the function');
+  let time;
+
+  let timeNow = now !== undefined ? time = new Date(now) : time = new Date()
+
+  const appoitmnetDate = new Date(timeNow);
+  appoitmnetDate.setDate(appoitmnetDate.getDate() + days);
+
+  return appoitmnetDate;
+  
 }
 
 /**
@@ -20,7 +28,7 @@ export function createAppointment(days, now = undefined) {
  * @returns {string} timestamp
  */
 export function getAppointmentTimestamp(appointmentDate) {
-  throw new Error('Remove this line and implement the function');
+  return appointmentDate.toISOString();
 }
 
 /**
@@ -31,7 +39,9 @@ export function getAppointmentTimestamp(appointmentDate) {
  * @returns {Record<'year' | 'month' | 'date' | 'hour' | 'minute', number>} the appointment details
  */
 export function getAppointmentDetails(timestamp) {
-  throw new Error('Remove this line and implement the function');
+  let date = new Date(timestamp);
+
+  return {year: date.getFullYear(), month: date.getMonth(), date: date.getDate(), hour: date.getHours(), minute: date.getMinutes()};
 }
 
 /**
@@ -43,7 +53,16 @@ export function getAppointmentDetails(timestamp) {
  * @returns {Record<'year' | 'month' | 'date' | 'hour' | 'minute', number>} the appointment details
  */
 export function updateAppointment(timestamp, options) {
-  throw new Error('Remove this line and implement the function');
+  let date = new Date(timestamp);
+
+  options.year !== undefined ? date.setFullYear(options.year) : null;
+  options.month !== undefined ? date.setMonth(options.month) : null;
+  options.date !== undefined ? date.setDate(options.date) : null;
+  options.hour !== undefined ? date.setHours(options.hour) : null;
+  options.minute !== undefined ? date.setMinutes(options.minute) : null;
+
+  return {year: date.getFullYear(), month: date.getMonth(), date: date.getDate(), hour: date.getHours(), minute: date.getMinutes()};
+  
 }
 
 /**
@@ -55,8 +74,12 @@ export function updateAppointment(timestamp, options) {
  * @returns {number} amount of seconds (rounded)
  */
 export function timeBetween(timestampA, timestampB) {
-  throw new Error('Remove this line and implement the function');
+  let dateA = new Date(timestampA);
+  let dateB = new Date(timestampB);
+
+  return dateA.getSeconds() - dateB.getSeconds();
 }
+
 
 /**
  * Get available times between two appointment
