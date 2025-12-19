@@ -13,17 +13,8 @@
  * @returns {number} position of the card in the stack
  */
 export function getCardPosition(stack, card) {
-  let index = 0;
-
-
-  for (let i = 0; i < stack.length; i++) {
-    // stack.includes vérifie si le tableau inclus une valeur, si cest true l'index est égale au stack[i] sinon c'est egale a -1
-    stack.includes(card) ? index === stack[i] : index = -1;
-
-
-  }
-  
-  return index;
+  // .indexOf retourn simplement l'index de l'element card du tableau stack
+  return stack.indexOf(card);
 }
 
 /**
