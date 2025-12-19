@@ -13,7 +13,17 @@
  * @returns {number} position of the card in the stack
  */
 export function getCardPosition(stack, card) {
-  throw new Error('Implement the getCardPosition function');
+  let index = 0;
+
+
+  for (let i = 0; i < stack.length; i++) {
+    // stack.includes vérifie si le tableau inclus une valeur, si cest true l'index est égale au stack[i] sinon c'est egale a -1
+    stack.includes(card) ? index === stack[i] : index = -1;
+
+
+  }
+  
+  return index;
 }
 
 /**
@@ -25,7 +35,9 @@ export function getCardPosition(stack, card) {
  * @returns {boolean} true if card is in the stack, false otherwise
  */
 export function doesStackIncludeCard(stack, card) {
-  throw new Error('Implement the doesStackIncludeCard function');
+  // Ca renvoie true ou false en fonction de si card est inclus dans stack
+  return stack.includes(card);
+
 }
 
 /**
@@ -36,7 +48,9 @@ export function doesStackIncludeCard(stack, card) {
  * @returns {boolean} true if all cards are even, false otherwise
  */
 export function isEachCardEven(stack) {
-  throw new Error('Implement the isEachCardEven function');
+  // Le .every test tous les elements avec la fonction booléean num => num % 2 === 0, sa retourne true si tous on passé le test, si un est false, le return sera false.
+  return stack.every((num) => num % 2 === 0);
+
 }
 
 /**
@@ -47,7 +61,8 @@ export function isEachCardEven(stack) {
  * @returns {boolean} true if the array contains odd card, false otherwise
  */
 export function doesStackIncludeOddCard(stack) {
-  throw new Error('Implement the doesStackIncludesOddCard function');
+  // le .some est comme le .every sauf que la il suffit que y'ait seleument un true dans le test, et sa retourne true.
+  return stack.some((num) => num % 2 !== 0);
 }
 
 /**
@@ -58,7 +73,8 @@ export function doesStackIncludeOddCard(stack) {
  * @returns {number | undefined} the first odd value
  */
 export function getFirstOddCard(stack) {
-  throw new Error('Implement the getFirstOddCard function');
+  // .find retourne le premiere elemenent correspondant au test
+  return stack.find((num) => num % 2 !== 0);
 }
 
 /**
@@ -69,5 +85,6 @@ export function getFirstOddCard(stack) {
  * @returns {number} position of the first card that is even
  */
 export function getFirstEvenCardPosition(stack) {
-  throw new Error('Implement the getFirstEvenCardPosition function');
+  // comme le .find, sauf que si aucun elemenent ne passe le test, il retourne -1
+  return stack.findIndex((num) => num % 2 === 0);
 }
