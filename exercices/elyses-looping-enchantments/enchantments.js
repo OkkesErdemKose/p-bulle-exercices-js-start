@@ -12,9 +12,8 @@ export function cardTypeCheck(stack, card) {
   let sameCard = 0;
 
   for (let i = 0; i < stack.length; i++) {
-    if (stack[i] === card) {
-      sameCard++;
-    }
+    // si la carte dans le tas est la meme que la carte, ca incrlmente sameCard, sinon ca fait rien
+    stack[i] === card ? sameCard++ : null;
   }
 
   return sameCard;
@@ -29,13 +28,10 @@ export function cardTypeCheck(stack, card) {
  */
 export function determineOddEvenCards(stack, type) {
   let count = 0;
-  
+
   for (const carte of stack) {
-    if (type && carte % 2 === 0) {
-      count++;
-    } else if (!type && carte % 2 !== 0) {
-      count++;
-    }
+    // Ici on verifie 'type' et 'carte % 2 === 0' (= pair), si ils sont true, ca incrémnente count, sinon on verifie si 'type' et carte % 2 !== 0 (= impair) si c'est false ca incrémente count, sinon ca fait rien
+    type && carte % 2 === 0 ? count++ : !type && carte % 2 !== 0 ? count++ : null;
   }
 
   return count;
